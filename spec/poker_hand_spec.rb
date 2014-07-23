@@ -29,4 +29,16 @@ describe("poker_hand") do
   it("takes a poker hand with 5 cards of the same suit and returns 'flush'") do
     poker_hand(["2H", "4H", "7H", "JH", "10H"]).should(eq("flush"))
   end
+
+  it("takes a poker hand with 5 cards of the same suit in numerical order and returns 'straight flush'") do
+    poker_hand(["2H", "3H", "4H", "5H", "6H"]).should(eq("straight flush"))
+  end
+
+  it("takes a poker hand with a straight flush from 10 to Ace and returns royal flush") do
+    poker_hand(["10S", "JS", "QS", "KS", "AS"]).should(eq("royal flush"))
+  end
+
+  it("takes a poker hand with no matches of any kind") do
+    poker_hand(["10S", "5S", "2S", "JD", "9D"]).should(eq("high card"))
+  end
 end

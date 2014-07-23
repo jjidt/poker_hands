@@ -50,8 +50,16 @@ def poker_hand(hand)
   elsif duplicates.length ==3
     "2 pair"
   elsif number_cards == comparison_cards
-    "straight"
+    if suit_cards.uniq.length ==1 && starting_card ==10
+      "royal flush"
+    elsif suit_cards.uniq.length == 1
+      "straight flush"
+    else
+      "straight"
+    end
   elsif suit_cards.uniq.length ==1
     "flush"
+  else
+    "high card"
   end
 end
